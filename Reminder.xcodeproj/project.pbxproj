@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990567052C340F9C0098DB09 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567042C340F9C0098DB09 /* RealmDB.swift */; };
+		990567072C344ABE0098DB09 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567062C344ABE0098DB09 /* UITextField+Extension.swift */; };
 		99061F482C33E57300D8559F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F472C33E57300D8559F /* AppDelegate.swift */; };
 		99061F4A2C33E57300D8559F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F492C33E57300D8559F /* SceneDelegate.swift */; };
 		99061F4C2C33E57300D8559F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F4B2C33E57300D8559F /* ViewController.swift */; };
@@ -17,9 +19,22 @@
 		99061F612C33EAE000D8559F /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F602C33EAE000D8559F /* BaseTableViewCell.swift */; };
 		99061F632C33EAED00D8559F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F622C33EAED00D8559F /* BaseCollectionViewCell.swift */; };
 		99061F652C33ECE400D8559F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 99061F642C33ECE400D8559F /* .gitignore */; };
+		99061F682C33EDAE00D8559F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99061F672C33EDAE00D8559F /* RealmSwift */; };
+		99061F6B2C33EDBD00D8559F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 99061F6A2C33EDBD00D8559F /* SnapKit */; };
+		99061F6E2C33EE1C00D8559F /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F6D2C33EE1C00D8559F /* ScheduleListView.swift */; };
+		99061F712C33EED000D8559F /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F702C33EED000D8559F /* ReusableIdentifier.swift */; };
+		99061F732C33F68600D8559F /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F722C33F68600D8559F /* ScheduleListViewController.swift */; };
+		99061F762C33F8D600D8559F /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F752C33F8D600D8559F /* AddScheduleView.swift */; };
+		99061F782C33F8EA00D8559F /* AddScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F772C33F8EA00D8559F /* AddScheduleViewController.swift */; };
+		99061F7A2C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F792C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift */; };
+		99061F7D2C33FC9E00D8559F /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F7C2C33FC9E00D8559F /* MemoListView.swift */; };
+		99061F7F2C33FCAB00D8559F /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F7E2C33FCAB00D8559F /* MemoListViewController.swift */; };
+		99061F812C34012D00D8559F /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F802C34012D00D8559F /* MemoListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		990567042C340F9C0098DB09 /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
+		990567062C344ABE0098DB09 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		99061F442C33E57300D8559F /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99061F472C33E57300D8559F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99061F492C33E57300D8559F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +47,15 @@
 		99061F602C33EAE000D8559F /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		99061F622C33EAED00D8559F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		99061F642C33ECE400D8559F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		99061F6D2C33EE1C00D8559F /* ScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListView.swift; sourceTree = "<group>"; };
+		99061F702C33EED000D8559F /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
+		99061F722C33F68600D8559F /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
+		99061F752C33F8D600D8559F /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
+		99061F772C33F8EA00D8559F /* AddScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleViewController.swift; sourceTree = "<group>"; };
+		99061F792C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleTitleMemoTableViewCell.swift; sourceTree = "<group>"; };
+		99061F7C2C33FC9E00D8559F /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
+		99061F7E2C33FCAB00D8559F /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
+		99061F802C34012D00D8559F /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,12 +63,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99061F682C33EDAE00D8559F /* RealmSwift in Frameworks */,
+				99061F6B2C33EDBD00D8559F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		990567032C340F8F0098DB09 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				990567042C340F9C0098DB09 /* RealmDB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		99061F3B2C33E57300D8559F = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +99,14 @@
 		99061F462C33E57300D8559F /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				990567032C340F8F0098DB09 /* Database */,
+				99061F6F2C33EEB600D8559F /* Extension */,
 				99061F5B2C33EA9D00D8559F /* Base */,
-				99061F472C33E57300D8559F /* AppDelegate.swift */,
+				99061F6C2C33EE0B00D8559F /* ScheduleList */,
+				99061F742C33F88300D8559F /* AddSchedule */,
+				99061F7B2C33FC8200D8559F /* MemoList */,
 				99061F492C33E57300D8559F /* SceneDelegate.swift */,
+				99061F472C33E57300D8559F /* AppDelegate.swift */,
 				99061F4B2C33E57300D8559F /* ViewController.swift */,
 				99061F502C33E57400D8559F /* Assets.xcassets */,
 				99061F522C33E57400D8559F /* LaunchScreen.storyboard */,
@@ -87,6 +126,44 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		99061F6C2C33EE0B00D8559F /* ScheduleList */ = {
+			isa = PBXGroup;
+			children = (
+				99061F6D2C33EE1C00D8559F /* ScheduleListView.swift */,
+				99061F722C33F68600D8559F /* ScheduleListViewController.swift */,
+			);
+			path = ScheduleList;
+			sourceTree = "<group>";
+		};
+		99061F6F2C33EEB600D8559F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				99061F702C33EED000D8559F /* ReusableIdentifier.swift */,
+				990567062C344ABE0098DB09 /* UITextField+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		99061F742C33F88300D8559F /* AddSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				99061F752C33F8D600D8559F /* AddScheduleView.swift */,
+				99061F772C33F8EA00D8559F /* AddScheduleViewController.swift */,
+				99061F792C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift */,
+			);
+			path = AddSchedule;
+			sourceTree = "<group>";
+		};
+		99061F7B2C33FC8200D8559F /* MemoList */ = {
+			isa = PBXGroup;
+			children = (
+				99061F7C2C33FC9E00D8559F /* MemoListView.swift */,
+				99061F7E2C33FCAB00D8559F /* MemoListViewController.swift */,
+				99061F802C34012D00D8559F /* MemoListTableViewCell.swift */,
+			);
+			path = MemoList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,6 +180,10 @@
 			dependencies = (
 			);
 			name = Reminder;
+			packageProductDependencies = (
+				99061F672C33EDAE00D8559F /* RealmSwift */,
+				99061F6A2C33EDBD00D8559F /* SnapKit */,
+			);
 			productName = Reminder;
 			productReference = 99061F442C33E57300D8559F /* Reminder.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +212,10 @@
 				Base,
 			);
 			mainGroup = 99061F3B2C33E57300D8559F;
+			packageReferences = (
+				99061F662C33EDAE00D8559F /* XCRemoteSwiftPackageReference "realm-swift" */,
+				99061F692C33EDBD00D8559F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 99061F452C33E57300D8559F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -159,12 +244,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				99061F5F2C33EACB00D8559F /* BaseViewController.swift in Sources */,
+				99061F712C33EED000D8559F /* ReusableIdentifier.swift in Sources */,
+				990567052C340F9C0098DB09 /* RealmDB.swift in Sources */,
 				99061F632C33EAED00D8559F /* BaseCollectionViewCell.swift in Sources */,
+				99061F812C34012D00D8559F /* MemoListTableViewCell.swift in Sources */,
 				99061F4C2C33E57300D8559F /* ViewController.swift in Sources */,
+				99061F7D2C33FC9E00D8559F /* MemoListView.swift in Sources */,
 				99061F482C33E57300D8559F /* AppDelegate.swift in Sources */,
 				99061F4A2C33E57300D8559F /* SceneDelegate.swift in Sources */,
+				990567072C344ABE0098DB09 /* UITextField+Extension.swift in Sources */,
+				99061F732C33F68600D8559F /* ScheduleListViewController.swift in Sources */,
+				99061F782C33F8EA00D8559F /* AddScheduleViewController.swift in Sources */,
+				99061F7A2C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift in Sources */,
+				99061F6E2C33EE1C00D8559F /* ScheduleListView.swift in Sources */,
+				99061F7F2C33FCAB00D8559F /* MemoListViewController.swift in Sources */,
 				99061F612C33EAE000D8559F /* BaseTableViewCell.swift in Sources */,
 				99061F5D2C33EAB600D8559F /* BaseView.swift in Sources */,
+				99061F762C33F8D600D8559F /* AddScheduleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +483,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		99061F662C33EDAE00D8559F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.52.1;
+			};
+		};
+		99061F692C33EDBD00D8559F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		99061F672C33EDAE00D8559F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99061F662C33EDAE00D8559F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		99061F6A2C33EDBD00D8559F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99061F692C33EDBD00D8559F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 99061F3C2C33E57300D8559F /* Project object */;
 }
