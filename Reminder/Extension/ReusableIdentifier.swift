@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+extension NSObjectProtocol {
+    
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
+}
