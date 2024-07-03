@@ -22,12 +22,28 @@ class AddScheduleViewController: BaseViewController {
         return view
     }()
     
+    var selectedDeadLineDate: String?
+    var userTag: String?
+    var userPriorityRank: String?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function, "add")
+
+        mainView.tableView.reloadData()
+    }
     override func loadView() {
         view = mainView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationItem()
+      
+    }
+    // MARK: Notification
+    @objc func deadLineDateReceivedNotification(notification: NSNotification) {
+        if let value = notification.userInfo? ["DeadLineDate"] as? String {
+            selectedDeadLineDate = value
+        }
     }
     func setUpNavigationItem() {
         navigationItem.title = "새로운 할일"
@@ -62,7 +78,7 @@ class AddScheduleViewController: BaseViewController {
             }
             return
         }
-        let data = MemoTable(memoTitle: title, memo: memo, endDate: nil, hashTag: nil)
+        let data = MemoTable(memoTitle: title, memo: memo, endDate: selectedDeadLineDate, hashTag: userTag, priority: userPriorityRank)
         try! realm.write {
             realm.add(data)
             dismiss(animated: true)
@@ -75,14 +91,69 @@ class AddScheduleViewController: BaseViewController {
 
 extension AddScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return MemoOtions.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainView.tableView.dequeueReusableCell(withIdentifier: AddScheduleTitleMemoTableViewCell.identifier, for: indexPath) as! AddScheduleTitleMemoTableViewCell
-        
-        return cell
+       
+        cell.optionButton.setTitle(MemoOtions.allCases[indexPath.row].buttonTitle, for: .normal)
+        let option = MemoOtions.allCases[indexPath.row]
+        switch option {
+        case .deadline:
+            cell.resultLabel.text = selectedDeadLineDate
+            return cell
+        case .tag:
+            cell.resultLabel.text = userTag
+            return cell
+        case .priorityRank:
+            cell.resultLabel.text = userPriorityRank
+            return cell
+        case .addImage:
+            cell.resultLabel.text = ""
+            return cell
+        }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 열거형 타입이라 비교 불가
+        // let item = MemoOtions.allCases[indexPath.row]
+        let option = MemoOtions.allCases[indexPath.row]
+        switch option {
+            // MARK: Notification
+        case.deadline:
+            let vc = DeadLineSettingViewController()
+            NotificationCenter.default.addObserver(self, selector: #selector(deadLineDateReceivedNotification), name: NSNotification.Name("DateReceived"), object: nil)
+            vc.modalPresentationStyle = .fullScreen
+            return present(vc, animated: true)
+            // MARK: Delegate
+        case .tag:
+            let vc = TagSettingViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.delegate = self
+            present(vc, animated: true)
+            return
+            // MARK: Closure
+        case .priorityRank:
+            let vc = PriorityRankViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.userRank = { [weak self] value in
+                self?.userPriorityRank = value
+                self?.mainView.tableView.reloadData()
+            }
+            present(vc, animated: true)
+            return
+        case .addImage:
+            return
+        }
+    }
 }
 
+// MARK: Delegate
+extension AddScheduleViewController: SendStringData {
+    func sendData(myData: String) {
+        print(#function)
+        userTag = myData
+        mainView.tableView.reloadData()
+    }
+}
