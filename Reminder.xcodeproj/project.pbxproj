@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		990567052C340F9C0098DB09 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567042C340F9C0098DB09 /* RealmDB.swift */; };
 		990567072C344ABE0098DB09 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567062C344ABE0098DB09 /* UITextField+Extension.swift */; };
+		9905670D2C354C440098DB09 /* TalbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905670C2C354C440098DB09 /* TalbleView.swift */; };
+		990567102C3551F50098DB09 /* DeadLineSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905670F2C3551F50098DB09 /* DeadLineSettingViewController.swift */; };
+		990567112C355E600098DB09 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 99061F672C33EDAE00D8559F /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		990567152C356EEE0098DB09 /* TagSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567142C356EEE0098DB09 /* TagSettingViewController.swift */; };
+		990567182C35A1FA0098DB09 /* PriorityRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567172C35A1FA0098DB09 /* PriorityRankViewController.swift */; };
 		99061F482C33E57300D8559F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F472C33E57300D8559F /* AppDelegate.swift */; };
 		99061F4A2C33E57300D8559F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F492C33E57300D8559F /* SceneDelegate.swift */; };
 		99061F4C2C33E57300D8559F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F4B2C33E57300D8559F /* ViewController.swift */; };
@@ -32,9 +37,27 @@
 		99061F812C34012D00D8559F /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F802C34012D00D8559F /* MemoListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		990567122C355E600098DB09 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				990567112C355E600098DB09 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		990567042C340F9C0098DB09 /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		990567062C344ABE0098DB09 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		9905670C2C354C440098DB09 /* TalbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalbleView.swift; sourceTree = "<group>"; };
+		9905670F2C3551F50098DB09 /* DeadLineSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineSettingViewController.swift; sourceTree = "<group>"; };
+		990567142C356EEE0098DB09 /* TagSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSettingViewController.swift; sourceTree = "<group>"; };
+		990567172C35A1FA0098DB09 /* PriorityRankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityRankViewController.swift; sourceTree = "<group>"; };
 		99061F442C33E57300D8559F /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99061F472C33E57300D8559F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99061F492C33E57300D8559F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +102,38 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		9905670B2C354C190098DB09 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				9905670C2C354C440098DB09 /* TalbleView.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		9905670E2C35516D0098DB09 /* DeadLineSetting */ = {
+			isa = PBXGroup;
+			children = (
+				9905670F2C3551F50098DB09 /* DeadLineSettingViewController.swift */,
+			);
+			path = DeadLineSetting;
+			sourceTree = "<group>";
+		};
+		990567132C356ED40098DB09 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				990567142C356EEE0098DB09 /* TagSettingViewController.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		990567162C35A1E60098DB09 /* PriorityRank */ = {
+			isa = PBXGroup;
+			children = (
+				990567172C35A1FA0098DB09 /* PriorityRankViewController.swift */,
+			);
+			path = PriorityRank;
+			sourceTree = "<group>";
+		};
 		99061F3B2C33E57300D8559F = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +154,10 @@
 		99061F462C33E57300D8559F /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				99061F5B2C33EA9D00D8559F /* Base */,
+				9905670B2C354C190098DB09 /* Enum */,
 				990567032C340F8F0098DB09 /* Database */,
 				99061F6F2C33EEB600D8559F /* Extension */,
-				99061F5B2C33EA9D00D8559F /* Base */,
 				99061F6C2C33EE0B00D8559F /* ScheduleList */,
 				99061F742C33F88300D8559F /* AddSchedule */,
 				99061F7B2C33FC8200D8559F /* MemoList */,
@@ -147,6 +203,9 @@
 		99061F742C33F88300D8559F /* AddSchedule */ = {
 			isa = PBXGroup;
 			children = (
+				990567162C35A1E60098DB09 /* PriorityRank */,
+				990567132C356ED40098DB09 /* Tag */,
+				9905670E2C35516D0098DB09 /* DeadLineSetting */,
 				99061F752C33F8D600D8559F /* AddScheduleView.swift */,
 				99061F772C33F8EA00D8559F /* AddScheduleViewController.swift */,
 				99061F792C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift */,
@@ -174,6 +233,7 @@
 				99061F402C33E57300D8559F /* Sources */,
 				99061F412C33E57300D8559F /* Frameworks */,
 				99061F422C33E57300D8559F /* Resources */,
+				990567122C355E600098DB09 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -244,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99061F5F2C33EACB00D8559F /* BaseViewController.swift in Sources */,
+				990567102C3551F50098DB09 /* DeadLineSettingViewController.swift in Sources */,
 				99061F712C33EED000D8559F /* ReusableIdentifier.swift in Sources */,
 				990567052C340F9C0098DB09 /* RealmDB.swift in Sources */,
 				99061F632C33EAED00D8559F /* BaseCollectionViewCell.swift in Sources */,
@@ -254,13 +315,16 @@
 				99061F4A2C33E57300D8559F /* SceneDelegate.swift in Sources */,
 				990567072C344ABE0098DB09 /* UITextField+Extension.swift in Sources */,
 				99061F732C33F68600D8559F /* ScheduleListViewController.swift in Sources */,
+				9905670D2C354C440098DB09 /* TalbleView.swift in Sources */,
 				99061F782C33F8EA00D8559F /* AddScheduleViewController.swift in Sources */,
 				99061F7A2C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift in Sources */,
 				99061F6E2C33EE1C00D8559F /* ScheduleListView.swift in Sources */,
 				99061F7F2C33FCAB00D8559F /* MemoListViewController.swift in Sources */,
 				99061F612C33EAE000D8559F /* BaseTableViewCell.swift in Sources */,
+				990567182C35A1FA0098DB09 /* PriorityRankViewController.swift in Sources */,
 				99061F5D2C33EAB600D8559F /* BaseView.swift in Sources */,
 				99061F762C33F8D600D8559F /* AddScheduleView.swift in Sources */,
+				990567152C356EEE0098DB09 /* TagSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
