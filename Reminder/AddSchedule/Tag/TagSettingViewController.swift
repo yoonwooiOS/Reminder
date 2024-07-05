@@ -33,6 +33,9 @@ class TagSettingViewController: BaseViewController {
     
     var delegate: SendStringData?
     
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate?.sendData(myData: tagTextField.text!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpButton()
@@ -57,7 +60,7 @@ class TagSettingViewController: BaseViewController {
     
     @objc func doneButtonClicked() {
         delegate?.sendData(myData: tagTextField.text!)
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
         
     }
 }
