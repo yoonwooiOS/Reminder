@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum PriorityView: String, CaseIterable {
+    case low = "낮음"
+    case middle = "중간"
+    case hight = "높음"
+}

@@ -14,6 +14,12 @@
 		990567112C355E600098DB09 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 99061F672C33EDAE00D8559F /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		990567152C356EEE0098DB09 /* TagSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567142C356EEE0098DB09 /* TagSettingViewController.swift */; };
 		990567182C35A1FA0098DB09 /* PriorityRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567172C35A1FA0098DB09 /* PriorityRankViewController.swift */; };
+		990567212C3693610098DB09 /* ScheduleSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567202C3693610098DB09 /* ScheduleSummaryView.swift */; };
+		990567232C3698900098DB09 /* ScheduleSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567222C3698900098DB09 /* ScheduleSummaryViewController.swift */; };
+		990567252C369AEB0098DB09 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567242C369AEB0098DB09 /* UIButton+Extension.swift */; };
+		990567272C36A0C10098DB09 /* ScheduleSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567262C36A0C00098DB09 /* ScheduleSummaryCollectionViewCell.swift */; };
+		990567292C36C3AB0098DB09 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567282C36C3AB0098DB09 /* CollectionView.swift */; };
+		990567552C37CDA00098DB09 /* PriorityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990567542C37CDA00098DB09 /* PriorityView.swift */; };
 		99061F482C33E57300D8559F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F472C33E57300D8559F /* AppDelegate.swift */; };
 		99061F4A2C33E57300D8559F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F492C33E57300D8559F /* SceneDelegate.swift */; };
 		99061F4C2C33E57300D8559F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F4B2C33E57300D8559F /* ViewController.swift */; };
@@ -58,6 +64,12 @@
 		9905670F2C3551F50098DB09 /* DeadLineSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineSettingViewController.swift; sourceTree = "<group>"; };
 		990567142C356EEE0098DB09 /* TagSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSettingViewController.swift; sourceTree = "<group>"; };
 		990567172C35A1FA0098DB09 /* PriorityRankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityRankViewController.swift; sourceTree = "<group>"; };
+		990567202C3693610098DB09 /* ScheduleSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSummaryView.swift; sourceTree = "<group>"; };
+		990567222C3698900098DB09 /* ScheduleSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSummaryViewController.swift; sourceTree = "<group>"; };
+		990567242C369AEB0098DB09 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		990567262C36A0C00098DB09 /* ScheduleSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		990567282C36C3AB0098DB09 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		990567542C37CDA00098DB09 /* PriorityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityView.swift; sourceTree = "<group>"; };
 		99061F442C33E57300D8559F /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99061F472C33E57300D8559F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99061F492C33E57300D8559F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				9905670C2C354C440098DB09 /* TalbleView.swift */,
+				990567282C36C3AB0098DB09 /* CollectionView.swift */,
+				990567542C37CDA00098DB09 /* PriorityView.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -132,6 +146,16 @@
 				990567172C35A1FA0098DB09 /* PriorityRankViewController.swift */,
 			);
 			path = PriorityRank;
+			sourceTree = "<group>";
+		};
+		9905671F2C3692FF0098DB09 /* ScheduleSummary */ = {
+			isa = PBXGroup;
+			children = (
+				990567202C3693610098DB09 /* ScheduleSummaryView.swift */,
+				990567222C3698900098DB09 /* ScheduleSummaryViewController.swift */,
+				990567262C36A0C00098DB09 /* ScheduleSummaryCollectionViewCell.swift */,
+			);
+			path = ScheduleSummary;
 			sourceTree = "<group>";
 		};
 		99061F3B2C33E57300D8559F = {
@@ -161,8 +185,9 @@
 				99061F6C2C33EE0B00D8559F /* ScheduleList */,
 				99061F742C33F88300D8559F /* AddSchedule */,
 				99061F7B2C33FC8200D8559F /* MemoList */,
-				99061F492C33E57300D8559F /* SceneDelegate.swift */,
+				9905671F2C3692FF0098DB09 /* ScheduleSummary */,
 				99061F472C33E57300D8559F /* AppDelegate.swift */,
+				99061F492C33E57300D8559F /* SceneDelegate.swift */,
 				99061F4B2C33E57300D8559F /* ViewController.swift */,
 				99061F502C33E57400D8559F /* Assets.xcassets */,
 				99061F522C33E57400D8559F /* LaunchScreen.storyboard */,
@@ -196,6 +221,7 @@
 			children = (
 				99061F702C33EED000D8559F /* ReusableIdentifier.swift */,
 				990567062C344ABE0098DB09 /* UITextField+Extension.swift */,
+				990567242C369AEB0098DB09 /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -305,21 +331,27 @@
 			files = (
 				99061F5F2C33EACB00D8559F /* BaseViewController.swift in Sources */,
 				990567102C3551F50098DB09 /* DeadLineSettingViewController.swift in Sources */,
+				990567552C37CDA00098DB09 /* PriorityView.swift in Sources */,
 				99061F712C33EED000D8559F /* ReusableIdentifier.swift in Sources */,
 				990567052C340F9C0098DB09 /* RealmDB.swift in Sources */,
 				99061F632C33EAED00D8559F /* BaseCollectionViewCell.swift in Sources */,
 				99061F812C34012D00D8559F /* MemoListTableViewCell.swift in Sources */,
 				99061F4C2C33E57300D8559F /* ViewController.swift in Sources */,
 				99061F7D2C33FC9E00D8559F /* MemoListView.swift in Sources */,
+				990567252C369AEB0098DB09 /* UIButton+Extension.swift in Sources */,
 				99061F482C33E57300D8559F /* AppDelegate.swift in Sources */,
+				990567212C3693610098DB09 /* ScheduleSummaryView.swift in Sources */,
 				99061F4A2C33E57300D8559F /* SceneDelegate.swift in Sources */,
 				990567072C344ABE0098DB09 /* UITextField+Extension.swift in Sources */,
 				99061F732C33F68600D8559F /* ScheduleListViewController.swift in Sources */,
 				9905670D2C354C440098DB09 /* TalbleView.swift in Sources */,
 				99061F782C33F8EA00D8559F /* AddScheduleViewController.swift in Sources */,
 				99061F7A2C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift in Sources */,
+				990567232C3698900098DB09 /* ScheduleSummaryViewController.swift in Sources */,
+				990567292C36C3AB0098DB09 /* CollectionView.swift in Sources */,
 				99061F6E2C33EE1C00D8559F /* ScheduleListView.swift in Sources */,
 				99061F7F2C33FCAB00D8559F /* MemoListViewController.swift in Sources */,
+				990567272C36A0C10098DB09 /* ScheduleSummaryCollectionViewCell.swift in Sources */,
 				99061F612C33EAE000D8559F /* BaseTableViewCell.swift in Sources */,
 				990567182C35A1FA0098DB09 /* PriorityRankViewController.swift in Sources */,
 				99061F5D2C33EAB600D8559F /* BaseView.swift in Sources */,
