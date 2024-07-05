@@ -36,11 +36,19 @@ class AddScheduleTitleMemoTableViewCell: BaseTableViewCell {
         view.tintColor = .black
         return view
     }()
+    let imageview = {
+        let view = UIImageView()
+        view.contentMode = .scaleToFill
+//        view.backgroundColor = .blue
+        return view
+    }()
+    
     override func setUpHierarchy() {
         addSubview(baseUIView)
         addSubview(optionButton)
         addSubview(resultLabel)
         addSubview(chevronImageView)
+        addSubview(imageview)
     }
     override func setUpLayout() {
         baseUIView.snp.makeConstraints { make in
@@ -58,6 +66,11 @@ class AddScheduleTitleMemoTableViewCell: BaseTableViewCell {
         resultLabel.snp.makeConstraints { make in
             make.verticalEdges.equalTo(baseUIView).inset(4)
             make.trailing.equalTo(baseUIView.snp.trailing).inset(24)
+        }
+        imageview.snp.makeConstraints { make in
+            make.verticalEdges.equalTo(baseUIView).inset(12)
+            make.trailing.equalTo(baseUIView.snp.trailing).inset(24)
+            make.size.equalTo(20)
         }
     }
     

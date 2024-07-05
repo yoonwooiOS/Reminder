@@ -7,9 +7,10 @@
 
 import UIKit
 import RealmSwift
+import PhotosUI
 
 class AddScheduleViewController: BaseViewController {
-    
+
     let mainView = AddScheduleView()
     lazy var cancelButton = {
         let view = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonClicked))
@@ -22,14 +23,22 @@ class AddScheduleViewController: BaseViewController {
         return view
     }()
     
-    var selectedDeadLineDate: String?
+    
+    var selectedDeadLineDate: Date?
     var userTag: String?
     var userPriorityRank: String?
+    var userSelectedImage: UIImage?
+    
     
     override func viewWillAppear(_ animated: Bool) {
-        print(#function, "add")
-
+        super.viewWillAppear(animated)
+//        print(#function, "add")
+//        print(userSelectedImage)
+//        print(selectedDeadLineDate)
         mainView.tableView.reloadData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        print(#function, "scondView")
     }
     override func loadView() {
         view = mainView
@@ -41,7 +50,7 @@ class AddScheduleViewController: BaseViewController {
     }
     // MARK: Notification
     @objc func deadLineDateReceivedNotification(notification: NSNotification) {
-        if let value = notification.userInfo? ["DeadLineDate"] as? String {
+        if let value = notification.userInfo? ["DeadLineDate"] as? Date {
             selectedDeadLineDate = value
         }
     }
@@ -64,7 +73,14 @@ class AddScheduleViewController: BaseViewController {
         alert.addAction(ok)
         present(alert, animated: true)
     }
-    
+    func selectImage() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.isEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
     
     @objc private func cancelButtonClicked() {
         dismiss(animated: true)
@@ -78,7 +94,7 @@ class AddScheduleViewController: BaseViewController {
             }
             return
         }
-        let data = MemoTable(memoTitle: title, memo: memo, endDate: selectedDeadLineDate, hashTag: userTag, priority: userPriorityRank)
+        let data = MemoTable(memoTitle: title, memo: memo, endDate: selectedDeadLineDate?.toKST(), hashTag: userTag, priority: userPriorityRank)
         try! realm.write {
             realm.add(data)
             dismiss(animated: true)
@@ -101,7 +117,8 @@ extension AddScheduleViewController: UITableViewDelegate, UITableViewDataSource 
         let option = MemoOtions.allCases[indexPath.row]
         switch option {
         case .deadline:
-            cell.resultLabel.text = selectedDeadLineDate
+            guard let date = selectedDeadLineDate else { return cell}
+            cell.resultLabel.text = date.dateToString()
             return cell
         case .tag:
             cell.resultLabel.text = userTag
@@ -111,6 +128,7 @@ extension AddScheduleViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
         case .addImage:
             cell.resultLabel.text = ""
+            cell.imageview.image = userSelectedImage
             return cell
         }
     }
@@ -124,26 +142,25 @@ extension AddScheduleViewController: UITableViewDelegate, UITableViewDataSource 
         case.deadline:
             let vc = DeadLineSettingViewController()
             NotificationCenter.default.addObserver(self, selector: #selector(deadLineDateReceivedNotification), name: NSNotification.Name("DateReceived"), object: nil)
-            vc.modalPresentationStyle = .fullScreen
-            return present(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
+            return
             // MARK: Delegate
         case .tag:
             let vc = TagSettingViewController()
-            vc.modalPresentationStyle = .fullScreen
             vc.delegate = self
-            present(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
             return
-            // MARK: Closure
+            // MARK: Closwure
         case .priorityRank:
             let vc = PriorityRankViewController()
-            vc.modalPresentationStyle = .fullScreen
             vc.userRank = { [weak self] value in
                 self?.userPriorityRank = value
                 self?.mainView.tableView.reloadData()
             }
-            present(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
             return
         case .addImage:
+            selectImage()
             return
         }
     }
@@ -157,3 +174,27 @@ extension AddScheduleViewController: SendStringData {
         mainView.tableView.reloadData()
     }
 }
+
+
+extension AddScheduleViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        
+        if let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            
+            itemProvider.loadObject(ofClass: UIImage.self) { Image, error in
+//                DispatchQueue.main.async {
+                    self.userSelectedImage = Image as? UIImage
+                //TODO: tableView reload시점 찾아야함
+//                    print(self.userSelectedImage)
+//                }
+            }
+        }
+        
+        dismiss(animated: true)
+        
+    }
+    
+    
+}
+
+

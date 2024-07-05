@@ -37,7 +37,7 @@ final class DeadLineSettingViewController: BaseViewController {
         return view
     }()
 //    var deadLine: ((String) -> Void)?
-    var selectedDate: String?
+    var selectedDate: Date?
     
     override func viewWillDisappear(_ animated: Bool) {
         guard let selectedDate = selectedDate else {
@@ -82,7 +82,7 @@ final class DeadLineSettingViewController: BaseViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         let dateString = dateFormatter.string(from: sender.date)
-        selectedDate = dateString
+        selectedDate = sender.date
     }
     @objc func doneButtonClicked() {
         guard let selectedDate = selectedDate else {

@@ -27,7 +27,7 @@ class MemoListViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(realm.configuration.fileURL)
+        print(realm.configuration.fileURL)
         list = realm.objects(MemoTable.self)
         setUpNavitaionItem()
     }
@@ -58,7 +58,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         let data = list[indexPath.row]
         cell.memoTitleLabel.text = data.memoTitle
         cell.memoLabel.text = data.memo
-        cell.dateLabel.text = data.endDate
+//        cell.dateLabel.text = data.endDate
         cell.hashTageLabel.text = data.hashTag
         return cell
     }
