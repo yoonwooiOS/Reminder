@@ -12,6 +12,7 @@ class ScheduleSummaryViewController: BaseViewController {
     let mainView = ScheduleSummaryView()
     lazy var ellipsisButton = {
         let view = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(ellipsisButtonClicked))
+        view.tintColor = .black
         return view
     }()
    
@@ -20,6 +21,8 @@ class ScheduleSummaryViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         print(#function,"메뉴")
+        mainView.collectionView.reloadData()
+        print(Date())
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,10 @@ class ScheduleSummaryViewController: BaseViewController {
         navigationItem.rightBarButtonItem = ellipsisButton
         navigationItem.title = "전체"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.backBarButtonItem?.tintColor = .black
+        let blackBackButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        blackBackButton.tintColor = .black
+        navigationItem.backBarButtonItem = blackBackButton
     }
     func setUpCollectionView() {
         mainView.collectionView.dataSource = self
@@ -42,7 +49,11 @@ class ScheduleSummaryViewController: BaseViewController {
     }
 
     @objc func addNewTodoButtonClicked() {
-        let nvc = UINavigationController(rootViewController: AddScheduleViewController())
+        let vc = AddScheduleViewController()
+        let nvc = UINavigationController(rootViewController: vc)
+        vc.collectionViewReloadHandler = {
+            self.mainView.collectionView.reloadData()
+        }
         present(nvc, animated: true)
         
     }
@@ -62,28 +73,14 @@ extension ScheduleSummaryViewController: UICollectionViewDelegate, UICollectionV
         
         let data = ScheduleSummary.allCases[indexPath.row]
         
-        switch data{
-        case .today:
-            cell.scheduleFilterName.text = data.cellComponent[0]
-            cell.imageView.image = UIImage(systemName: data.cellComponent[1])
-        case .expected:
-            cell.scheduleFilterName.text = data.cellComponent[0]
-            cell.imageView.image = UIImage(systemName: "\(data.cellComponent[1])")
-        case .all:
-            cell.scheduleFilterName.text = data.cellComponent[0]
-            cell.imageView.image = UIImage(systemName: "\(data.cellComponent[1])")
-        case .flag:
-            cell.scheduleFilterName.text = data.cellComponent[0]
-            cell.imageView.image = UIImage(systemName: "\(data.cellComponent[1])")
-        case .complete:
-            cell.scheduleFilterName.text = data.cellComponent[0]
-            cell.imageView.image = UIImage(systemName: "\(data.cellComponent[1])")
-        }
+        cell.setUpCell(data: data)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = MemoListViewController()
+        let data = ScheduleSummary.allCases[indexPath.row]
+        vc.data = data
         navigationController?.pushViewController(vc, animated: true)
     }
     

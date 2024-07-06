@@ -43,7 +43,12 @@ class ScheduleSummaryView: BaseView {
         view.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
         view.setTitle("새로운 할일", for: .normal)
         view.setTitleColor(.black, for: .normal)
-
+        view.tintColor = .systemGreen
+        var config = UIButton.Configuration.plain()
+        config.imagePlacement = .leading
+        config.imagePadding = 10
+       
+        view.configuration = config
         return view
     }()
     
