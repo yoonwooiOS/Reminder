@@ -15,15 +15,15 @@ enum ScheduleSummary: CaseIterable {
         switch self {
             
         case .today:
-            return ["오늘", "calendar.circle"]
+            return ["오늘", "calendar"]
         case .expected:
-            return ["예정","calendar.circle.fill"]
+            return ["예정","calendar.badge.clock"]
         case .all:
-            return ["전체", "calendar.badge.clock"]
+            return ["전체", "tray.fill"]
         case .flag:
-            return ["깃발 표시","flag.circle"]
+            return ["깃발 표시","flag.fill"]
         case .complete:
-            return ["완료됨", "checkmark.circle.fill"]
+            return ["완료됨", "checkmark"]
         }
     }
 }
