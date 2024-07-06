@@ -18,6 +18,7 @@ class MemoListTableViewCell: BaseTableViewCell {
     var memoTitleLabel: UILabel = {
         let view = UILabel()
         view.text = "!!!"
+        view.font = UIFont.systemFont(ofSize: 12)
         view.textColor = .systemGray4
         view.textAlignment = .left
         return view
@@ -33,6 +34,7 @@ class MemoListTableViewCell: BaseTableViewCell {
     var dateLabel: UILabel = {
         let view = UILabel()
         view.text = "2024"
+        view.font = UIFont.systemFont(ofSize: 12)
         view.textAlignment = .left
         return view
     }()
@@ -40,7 +42,7 @@ class MemoListTableViewCell: BaseTableViewCell {
     var hashTageLabel: UILabel = {
         let view = UILabel()
         view.text = "#"
-        
+        view.font = UIFont.systemFont(ofSize: 12)
         return view
     }()
     
@@ -51,36 +53,41 @@ class MemoListTableViewCell: BaseTableViewCell {
     }
     override func setUpLayout() {
         circleImageView.snp.makeConstraints { make in
-            make.centerY.equalTo(safeAreaLayoutGuide)
-            make.leading.equalTo(safeAreaLayoutGuide).offset(16)
-            make.width.height.equalTo(20)
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.width.height.equalTo(40)
         }
         
         memoTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(4)
-            make.leading.equalTo(circleImageView.snp.trailing).offset(8)
-            
-            
+            make.top.equalToSuperview().offset(8)
+            make.leading.equalTo(circleImageView.snp.trailing).offset(12)
+            make.trailing.equalToSuperview().offset(-16)
         }
         
         memoLabel.snp.makeConstraints { make in
-            make.top.equalTo(memoTitleLabel.snp.bottom).offset(4)
+            make.top.equalTo(memoTitleLabel.snp.bottom)
             make.leading.trailing.equalTo(memoTitleLabel)
-           
         }
         
         dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(memoLabel.snp.bottom).offset(4)
-            make.leading.trailing.equalTo(memoLabel)
-            
+            make.top.equalTo(memoLabel.snp.bottom)
+            make.leading.equalTo(memoTitleLabel)
         }
         
         hashTageLabel.snp.makeConstraints { make in
-            make.top.equalTo(memoLabel.snp.bottom).offset(4)
-            make.leading.equalTo(dateLabel.snp.trailing)
-            make.bottom.equalToSuperview().offset(-8)
-            
+            make.top.equalTo(dateLabel)
+            make.leading.equalTo(dateLabel.snp.trailing).offset(8)
+            make.trailing.lessThanOrEqualTo(memoTitleLabel)
+            make.bottom.equalToSuperview().offset(-12)
         }
+    }
+    func setUpCell(data: MemoTable) {
+        
+        memoTitleLabel.text = data.memoTitle
+        memoLabel.text =  (data.priority ?? "") + (data.memo ?? "")
+        dateLabel.text = data.endDate?.dateToString()
+        hashTageLabel.text = data.hashTag
+        
     }
    
 }
