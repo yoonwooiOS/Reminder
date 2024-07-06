@@ -28,7 +28,7 @@ class AddScheduleViewController: BaseViewController {
     var userTag: String?
     var userPriorityRank: String?
     var userSelectedImage: UIImage?
-    
+    var collectionViewReloadHandler: (() -> Void)?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,6 +39,7 @@ class AddScheduleViewController: BaseViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         print(#function, "scondView")
+        collectionViewReloadHandler?()
     }
     override func loadView() {
         view = mainView
@@ -189,7 +190,7 @@ extension AddScheduleViewController: PHPickerViewControllerDelegate {
 //                }
             }
         }
-        
+       
         dismiss(animated: true)
         
     }
