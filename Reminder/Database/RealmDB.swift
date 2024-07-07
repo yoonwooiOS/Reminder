@@ -16,7 +16,7 @@ class MemoTable: Object {
     @Persisted var endDate: Date? // 등록일 옵션
     @Persisted var hashTag: String? // 옵션
     @Persisted var priority: String?
-    @Persisted var complete: Bool = false
+    @Persisted var iscomplete: Bool = false
     @Persisted var flag: Bool = false
     
     convenience init(memoTitle: String, memo: String?, endDate: Date?, hashTag: String?, priority: String? ) {

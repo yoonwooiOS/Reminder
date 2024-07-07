@@ -29,14 +29,41 @@ class MemoListViewController: BaseViewController {
         super.viewDidLoad()
 //        print(data)
 //        print(realm.configuration.fileURL)
-        list = realm.objects(MemoTable.self).sorted(byKeyPath: "endDate", ascending: false)
+       
         
         setUpNavitaionItem()
+        setUpTableViewListData()
     }
     
     override func setUpTableView() {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
+    }
+    func setUpTableViewListData() {
+        guard let data = data else { return }
+        let realmData = realm.objects(MemoTable.self)
+        switch data {
+        case .today:
+            list = realmData.where {
+                let calendar = Calendar.current
+                let startOfDay = calendar.startOfDay(for: Date())
+                let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+                return $0.endDate >= startOfDay && $0.endDate < endOfDay && $0.iscomplete == false
+            }
+        case .expected:
+            list = realmData.where {
+                $0.endDate > Date() && $0.iscomplete == false
+            }
+        case .all, .flag:
+            list = realmData.where {
+                $0.iscomplete == false
+            }
+        case .complete:
+           list = realmData.where {
+                $0.iscomplete == true
+            }
+        }
+        
     }
     
     func setUpNavitaionItem() {

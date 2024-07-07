@@ -6,34 +6,34 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MemoListTableViewCell: BaseTableViewCell {
     
-    let circleImageView: UIButton = {
+    lazy var completeButton: UIButton = {
         let view = UIButton()
         view.setImage(UIImage(systemName: "circle"), for: .normal)
+        view.tintColor = .systemGreen
+        view.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
         return view
     }()
     
     var memoTitleLabel: UILabel = {
         let view = UILabel()
-        view.text = "!!!"
-        view.font = UIFont.systemFont(ofSize: 12)
-        view.textColor = .systemGray4
         view.textAlignment = .left
         return view
     }()
     
     var memoLabel: UILabel = {
         let view = UILabel()
-        view.text = "12321"
+        view.textColor = .systemGray4
+        view.font = UIFont.systemFont(ofSize: 12)
         view.textAlignment = .left
         return view
     }()
     
     var dateLabel: UILabel = {
         let view = UILabel()
-        view.text = "2024"
         view.font = UIFont.systemFont(ofSize: 12)
         view.textAlignment = .left
         return view
@@ -41,18 +41,18 @@ class MemoListTableViewCell: BaseTableViewCell {
     
     var hashTageLabel: UILabel = {
         let view = UILabel()
-        view.text = "#"
         view.font = UIFont.systemFont(ofSize: 12)
         return view
     }()
-    
+    var memoData: MemoTable?
+    var isCompleted = false
     override func setUpHierarchy() {
-        [circleImageView, memoTitleLabel, memoLabel, dateLabel, hashTageLabel].forEach {
+        [completeButton, memoTitleLabel, memoLabel, dateLabel, hashTageLabel].forEach {
             self.addSubview($0)
         }
     }
     override func setUpLayout() {
-        circleImageView.snp.makeConstraints { make in
+        completeButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
             make.width.height.equalTo(40)
@@ -60,7 +60,7 @@ class MemoListTableViewCell: BaseTableViewCell {
         
         memoTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
-            make.leading.equalTo(circleImageView.snp.trailing).offset(12)
+            make.leading.equalTo(completeButton.snp.trailing).offset(12)
             make.trailing.equalToSuperview().offset(-16)
         }
         
@@ -82,12 +82,30 @@ class MemoListTableViewCell: BaseTableViewCell {
         }
     }
     func setUpCell(data: MemoTable) {
-        
-        memoTitleLabel.text = data.memoTitle
-        memoLabel.text =  (data.priority ?? "") + (data.memo ?? "")
+        isCompleted = data.iscomplete
+        memoData = data
+        memoTitleLabel.text = (data.priority ?? "") + data.memoTitle
+        memoLabel.text =  data.memo
         dateLabel.text = data.endDate?.dateToString()
         hashTageLabel.text = data.hashTag
+        let completedImage = data.iscomplete ? "checkmark.circle.fill" : "circle"
+        completeButton.setImage(UIImage(systemName: completedImage), for: .normal)
         
     }
-   
+    @objc func completeButtonClicked() {
+        guard let memo = memoData else {
+            print("memoData is nil")
+            return
+        }
+        isCompleted.toggle()
+        
+        let imageName = isCompleted ? "checkmark.circle.fill" : "circle"
+        completeButton.setImage(UIImage(systemName: imageName), for: .normal)
+        
+        let realm = try! Realm()
+        try! realm.write {
+            memo.iscomplete = isCompleted
+            realm.add(memo, update: .modified)
+        }
+    }
 }
