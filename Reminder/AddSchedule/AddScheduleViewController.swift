@@ -155,7 +155,18 @@ extension AddScheduleViewController: UITableViewDelegate, UITableViewDataSource 
         case .priorityRank:
             let vc = PriorityRankViewController()
             vc.userRank = { [weak self] value in
-                self?.userPriorityRank = value
+                switch value {
+                case "높음":
+                    self?.userPriorityRank = "!!!"
+                case "중간":
+                    self?.userPriorityRank = "!!"
+                case "낮음":
+                    self?.userPriorityRank = "!"
+                    
+                default:
+                    self?.userPriorityRank = nil
+                }
+                print(value)
                 self?.mainView.tableView.reloadData()
             }
             navigationController?.pushViewController(vc, animated: true)
