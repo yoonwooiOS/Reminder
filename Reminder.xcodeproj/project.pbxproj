@@ -24,6 +24,7 @@
 		990567682C3A47350098DB09 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 990567672C3A47350098DB09 /* Toast */; };
 		9905676B2C3A47610098DB09 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9905676A2C3A47610098DB09 /* RealmSwift */; };
 		9905676C2C3A48D50098DB09 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 9905676A2C3A47610098DB09 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		9905676E2C3AF2500098DB09 /* MemoTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905676D2C3AF2500098DB09 /* MemoTableRepository.swift */; };
 		99061F482C33E57300D8559F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F472C33E57300D8559F /* AppDelegate.swift */; };
 		99061F4A2C33E57300D8559F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F492C33E57300D8559F /* SceneDelegate.swift */; };
 		99061F4C2C33E57300D8559F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F4B2C33E57300D8559F /* ViewController.swift */; };
@@ -43,6 +44,8 @@
 		99061F7D2C33FC9E00D8559F /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F7C2C33FC9E00D8559F /* MemoListView.swift */; };
 		99061F7F2C33FCAB00D8559F /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F7E2C33FCAB00D8559F /* MemoListViewController.swift */; };
 		99061F812C34012D00D8559F /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99061F802C34012D00D8559F /* MemoListTableViewCell.swift */; };
+		99E83C652C3D58750057BB87 /* DeadLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E83C642C3D58750057BB87 /* DeadLineViewModel.swift */; };
+		99E83C682C3D58A70057BB87 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E83C672C3D58A70057BB87 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +76,7 @@
 		990567542C37CDA00098DB09 /* PriorityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityView.swift; sourceTree = "<group>"; };
 		9905675E2C38AF8D0098DB09 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		990567602C38AFB30098DB09 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		9905676D2C3AF2500098DB09 /* MemoTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableRepository.swift; sourceTree = "<group>"; };
 		99061F442C33E57300D8559F /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99061F472C33E57300D8559F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99061F492C33E57300D8559F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		99061F7C2C33FC9E00D8559F /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
 		99061F7E2C33FCAB00D8559F /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
 		99061F802C34012D00D8559F /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
+		99E83C642C3D58750057BB87 /* DeadLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineViewModel.swift; sourceTree = "<group>"; };
+		99E83C672C3D58A70057BB87 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				990567042C340F9C0098DB09 /* RealmDB.swift */,
+				9905676D2C3AF2500098DB09 /* MemoTableRepository.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				9905670F2C3551F50098DB09 /* DeadLineSettingViewController.swift */,
+				99E83C642C3D58750057BB87 /* DeadLineViewModel.swift */,
 			);
 			path = DeadLineSetting;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 		99061F462C33E57300D8559F /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				99E83C662C3D58940057BB87 /* Model */,
 				99061F5B2C33EA9D00D8559F /* Base */,
 				9905670B2C354C190098DB09 /* Enum */,
 				990567032C340F8F0098DB09 /* Database */,
@@ -252,6 +261,14 @@
 				99061F802C34012D00D8559F /* MemoListTableViewCell.swift */,
 			);
 			path = MemoList;
+			sourceTree = "<group>";
+		};
+		99E83C662C3D58940057BB87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99E83C672C3D58A70057BB87 /* Observable.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9905676E2C3AF2500098DB09 /* MemoTableRepository.swift in Sources */,
 				99061F5F2C33EACB00D8559F /* BaseViewController.swift in Sources */,
 				990567102C3551F50098DB09 /* DeadLineSettingViewController.swift in Sources */,
 				990567552C37CDA00098DB09 /* PriorityView.swift in Sources */,
@@ -351,6 +369,7 @@
 				99061F4A2C33E57300D8559F /* SceneDelegate.swift in Sources */,
 				990567072C344ABE0098DB09 /* UITextField+Extension.swift in Sources */,
 				99061F732C33F68600D8559F /* ScheduleListViewController.swift in Sources */,
+				99E83C682C3D58A70057BB87 /* Observable.swift in Sources */,
 				9905670D2C354C440098DB09 /* TalbleView.swift in Sources */,
 				99061F782C33F8EA00D8559F /* AddScheduleViewController.swift in Sources */,
 				99061F7A2C33FA2600D8559F /* AddScheduleTitleMemoTableViewCell.swift in Sources */,
@@ -362,6 +381,7 @@
 				99061F612C33EAE000D8559F /* BaseTableViewCell.swift in Sources */,
 				990567182C35A1FA0098DB09 /* PriorityRankViewController.swift in Sources */,
 				99061F5D2C33EAB600D8559F /* BaseView.swift in Sources */,
+				99E83C652C3D58750057BB87 /* DeadLineViewModel.swift in Sources */,
 				99061F762C33F8D600D8559F /* AddScheduleView.swift in Sources */,
 				9905675F2C38AF8D0098DB09 /* String+Extension.swift in Sources */,
 				990567152C356EEE0098DB09 /* TagSettingViewController.swift in Sources */,

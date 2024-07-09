@@ -16,6 +16,7 @@ class MemoListViewController: BaseViewController {
         view.tintColor = .black
         return view
     }()
+    let reosigory = MemoTableRepository()
     var list: Results<MemoTable>!
     let realm = try! Realm()
     var data: ScheduleSummary?

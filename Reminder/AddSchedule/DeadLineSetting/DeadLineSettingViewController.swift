@@ -16,10 +16,15 @@ final class DeadLineSettingViewController: BaseViewController {
         view.datePickerMode = .date
         return view
     }()
+    let dateLabel = {
+        let label = UILabel()
+        
+        return label
+    }()
     var selectedDate: Date?
-    
+    let viewModel = DeadLineViewModel()
     override func viewWillDisappear(_ animated: Bool) {
-        guard let selectedDate = selectedDate else {
+        guard let selectedDate = viewModel.inputCalenderDateClicked.value else {
             print("선택되지 않음")
             return
         }
@@ -28,9 +33,11 @@ final class DeadLineSettingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPickerView()
+        bindData()
     }
     override func setUpHierarchy() {
         view.addSubview(datePicker)
+        view.addSubview(dateLabel)
     }
     
     override func setUpLayout() {
@@ -38,23 +45,20 @@ final class DeadLineSettingViewController: BaseViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).offset(32)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
         }
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(datePicker.snp.bottom).offset(12)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     func setUpPickerView() {
         datePicker.addTarget(self, action: #selector(dateClicked), for: .valueChanged)
     }
-    @objc func dateClicked(_ sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
-//        let dateString = dateFormatter.string(from: sender.date)
-        selectedDate = sender.date
-    }
-    @objc func doneButtonClicked() {
-        guard let selectedDate = selectedDate else {
-            return
+    func bindData() {
+        viewModel.outPudText.bind { value in
+            self.dateLabel.text = value
         }
-        NotificationCenter.default.post(name: NSNotification.Name("DateReceived"), object: nil, userInfo: ["DeadLineDate" :selectedDate])
-        navigationController?.popViewController(animated: true)
-        
     }
-    
+    @objc func dateClicked(_ sender: UIDatePicker) {
+        viewModel.inputCalenderDateClicked.value = sender.date
+    }
 }
